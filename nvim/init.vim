@@ -107,8 +107,8 @@ set expandtab
 set matchpairs+=<:> " use % to jump between pairs
 
 
-set backupdir=/home/rbourgeas/.vim/backups " Where backups will go. 
-set directory=/home/rbourgeas/.vim/tmp     " Where temporary files will go. 
+set backupdir=~/.vim/backups " Where backups will go. 
+set directory=~/.vim/tmp     " Where temporary files will go. 
 set background=dark " useful for vimdiff, really awful if not set
 "if has('nvim')
 "    " colorscheme apprentice
