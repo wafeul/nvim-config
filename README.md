@@ -1,2 +1,2 @@
 # nvim-config
-Config files for neovim
+After clonning, launch install.sh
