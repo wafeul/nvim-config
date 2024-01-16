@@ -1,6 +1,7 @@
 return {
     {
         "williamboman/mason.nvim",
+        lazy = false,
         config = function()
             require("mason").setup()
         end
@@ -8,6 +9,7 @@ return {
 
     {
         "williamboman/mason-lspconfig.nvim",
+        lazy = false,
         config = function()
             require("mason-lspconfig").setup({
                 ensure_installed = {"phpactor"}
@@ -19,7 +21,9 @@ return {
 
     {
         "neovim/nvim-lspconfig",
+        lazy = false,
         config = function()
+            -- local lspconfig = require("lspconfig")
             local lspconfig = require("lspconfig")
             -- lspconfig.lua_ls.setup({})
             lspconfig.phpactor.setup({
