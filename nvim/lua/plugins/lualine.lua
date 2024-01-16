@@ -7,7 +7,8 @@ return {
             options = {
                 icons_enabled = true,
                 -- theme = 'everforest',
-                theme = 'gruvbox_dark',
+                -- theme = 'dracula',
+                theme = 'gruvbox',
                 component_separators = { left = '', right = ''},
                 section_separators = { left = '', right = ''},
                 -- disabled_filetypes = {
