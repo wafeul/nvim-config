@@ -1,13 +1,12 @@
-----------------------------------------------------------------------------------------------------
---                                      Tree-Sitter setup
-----------------------------------------------------------------------------------------------------
-
 return {
-    "nvim-treesitter/nvim-treesitter",
-    build = ":TSUpdate",
-    config = function()
-        ensure_installed = {"php", "lua", "javascript", "python"}
-        highlight = {enable = "true"}
-    end
+	"nvim-treesitter/nvim-treesitter",
+	build = ":TSUpdate",
+	config = function()
+        local config = require("nvim-treesitter.configs")
+		config.setup({
+			auto_install = true,
+			highlight = { enable = "true" },
+			indent = { enable = "true" },
+		})
+	end,
 }
-
