@@ -12,7 +12,7 @@ return {
         lazy = false,
         config = function()
             require("mason-lspconfig").setup({
-                ensure_installed = {"lua_ls", "phpactor", "angularls", "stylua"}
+                ensure_installed = {"lua_ls", "phpactor", "angularls"}
             })
         end
     },
@@ -24,7 +24,6 @@ return {
             local lspconfig = require("lspconfig")
             lspconfig.lua_ls.setup({})
             lspconfig.angularls.setup({})
-            lspconfig.stylua.setup({})
             lspconfig.phpactor.setup({
                 on_attach = on_attach,
                 init_options = {
