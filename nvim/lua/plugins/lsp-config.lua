@@ -12,9 +12,7 @@ return {
         lazy = false,
         config = function()
             require("mason-lspconfig").setup({
-                ensure_installed = {"phpactor"}
-                -- ensure_installed = {"lua_ls"}
-                -- ensure_installed = {"lua_ls", "phpactor"}
+                ensure_installed = {"lua_ls", "phpactor", "angularls"}
             })
         end
     },
@@ -23,16 +21,16 @@ return {
         "neovim/nvim-lspconfig",
         lazy = false,
         config = function()
-            -- local lspconfig = require("lspconfig")
             local lspconfig = require("lspconfig")
-            -- lspconfig.lua_ls.setup({})
-            lspconfig.phpactor.setup({
-                on_attach = on_attach,
-                init_options = {
-                    ["language_server_phpstan.enabled"] = false,
-                    ["language_server_psalm.enabled"] = false,
-                }
-            })
+            lspconfig.lua_ls.setup({})
+            lspconfig.phpactor.setup({})
+            lspconfig.angularls.setup({})
+                -- on_attach = on_attach,
+                -- init_options = {
+                --     ["language_server_phpstan.enabled"] = false,
+                --     ["language_server_psalm.enabled"] = false,
+                -- }
+            -- })
             -- Key bindings
             vim.keymap.set('n', 'K', vim.lsp.buf.hover, {})
             vim.keymap.set('n', 'gd', vim.lsp.buf.definition, {})
