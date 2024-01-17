@@ -102,6 +102,7 @@ set notimeout ttimeout ttimeoutlen=200
 " Do not change 'tabstop' from its default value of 8 with this setup.
 set shiftwidth=4
 set softtabstop=4
+set tabstop=4
 set expandtab
 
 set matchpairs+=<:> " use % to jump between pairs
