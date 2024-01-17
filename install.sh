@@ -1,4 +1,5 @@
 #!/bin/bash
+sudo apt install composer npm
 if [ -d ~/.config/nvim ]
 then
     tar -czf ~/.config/nvim-old-config.tgz ~/.config/nvim
