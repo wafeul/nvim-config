@@ -1,5 +1,6 @@
 {
   "Comment.nvim": { "branch": "master", "commit": "0236521ea582747b58869cb72f70ccfa967d2e89" },
+  "ale": { "branch": "master", "commit": "8922478a83cd06bfe5b82eb45279649adc4ec046" },
   "apprentice": { "branch": "main", "commit": "ef980c7feccd0d3ea650f93494b4d13a16c1471a" },
   "auto-pairs": { "branch": "master", "commit": "39f06b873a8449af8ff6a3eee716d3da14d63a76" },
   "barbar.nvim": { "branch": "master", "commit": "dd852401ee902745b67fc09a83d113b3fe82a96f" },
