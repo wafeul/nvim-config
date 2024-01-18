@@ -1,5 +1,6 @@
 #!/bin/bash
 if ! composer -v &> /dev/null || ! npm -v &> /dev/null
+    # Ask user for external softwares
 then
 	echo "This script requires composer & npm to be installed first."
 	echo "If you have sudo rights please continue, otherwise ask your IT to install them first."
@@ -19,18 +20,11 @@ then
 			sudo apt install $softs
 		fi
 	done
-	# if ! composer -v &> /dev/null
-	# then
-	#     sudo apt install composer
-	# fi
-	# if ! npm -v &> /dev/null
-	# then
-	#     sudo apt install npm
-	# fi
 else
 	echo "Composer and npm already installed, proceeding with nvim configuration."
 fi
 if [ -d ~/.config/nvim ]
+    # Save old nvim config and install new one
 then
 	tar -czf ~/.config/nvim-old-config.tgz ~/.config/nvim
 	rm -rf ~/.config/nvim
