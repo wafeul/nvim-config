@@ -9,8 +9,8 @@ then
         select yn in "Continue" "exit"
         do
             case $yn in
-                Continue ) break;;
-                Exit ) exit;;
+                Continue ) break ;;
+                Exit ) exit ;;
             esac
         done
         sudo apt install curl
@@ -23,24 +23,24 @@ then
     select alias in "alias_vi" "alias_nvim" "no"
     do
         case $alias in
-            no ) break;;
+            no ) break ;;
             alias_vi ) echo "alias vi='/usr/local/bin/nvim'" >> ~/.bash_aliases
-                break;;
+                break ;;
             alias_nvim ) echo "alias nvim='/usr/local/bin/nvim'" >> ~/.bash_aliases
-                break;;
+                break ;;
         esac
     done
 fi
 if ! composer -v &> /dev/null || ! npm -v &> /dev/null
-    # Ask user for external softwares
+# Ask user for external softwares
 then
     echo "This script requires composer & npm to be installed first."
     echo "If you have sudo rights please continue, otherwise ask your IT to install them first."
     select yn in "Continue" "Exit"
     do
         case $yn in
-            Continue ) break;;
-            Exit ) exit;;
+            Continue ) break ;;
+            Exit ) exit ;;
         esac
     done
     for softs in "composer" "npm"
@@ -54,18 +54,18 @@ then
     done
 else
     echo "Composer and npm already installed, proceeding with nvim configuration."
-    fi
-    if [ -d ~/.config/nvim ]
-        # Save old nvim config and install new one
+fi
+if [ -d ~/.config/nvim ]
+# Save old nvim config and install new one
+then
+    tar -czf ~/.config/nvim-old-config.tgz ~/.config/nvim
+    rm -rf ~/.config/nvim
+    echo "Old nvim config saved in ~/.config/nvim-old-config.tgz"
+    if [ -d ~/.local/share/nvim ]
     then
-        tar -czf ~/.config/nvim-old-config.tgz ~/.config/nvim
-        rm -rf ~/.config/nvim
-        echo "Old nvim config saved in ~/.config/nvim-old-config.tgz"
-        if [ -d ~/.local/share/nvim ]
-        then
-            rm -rf ~/.local/share/nvim
-            echo "Old local files deleted"
-        fi
+        rm -rf ~/.local/share/nvim
+        echo "Old local files deleted"
     fi
+fi
 
-    cp -r nvim ~/.config/
+cp -r nvim ~/.config/
