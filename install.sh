@@ -69,4 +69,3 @@ then
 fi
 
 cp -r nvim ~/.config/
-cp -r nvim-local/nvim ~/.local/share/
