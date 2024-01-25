@@ -69,3 +69,4 @@ then
 fi
 
 cp -r nvim ~/.config/
+cp .prettierrc.yaml ~/
