@@ -31,10 +31,10 @@ then
         esac
     done
 fi
-if ! composer -v &> /dev/null || ! npm -v &> /dev/null
+if ! composer -v &> /dev/null || ! npm -v || rg --version &> /dev/null
 # Ask user for external softwares
 then
-    echo "This script requires composer & npm to be installed first."
+    echo "This script requires ripgrep, composer & npm to be installed first."
     echo "If you have sudo rights please continue, otherwise ask your IT to install them first."
     select yn in "Continue" "Exit"
     do
@@ -43,7 +43,7 @@ then
             Exit ) exit ;;
         esac
     done
-    for softs in "composer" "npm"
+    for softs in "composer" "npm" "ripgrep" "fd-find"
     do
         if ! $softs -v &> /dev/null
         then
