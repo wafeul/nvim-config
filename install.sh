@@ -5,7 +5,7 @@ then
     if ! curl -v &> /dev/null
     then
         echo "This script require curl in order to install the latest nvim image. Will install curl first."
-        echo "If you have sudo rights please continue, otherwise ask your IT to install them first."
+        echo "If you have sudo rights please continue, otherwise ask your IT to install curl first."
         select yn in "Continue" "exit"
         do
             case $yn in
@@ -31,10 +31,10 @@ then
         esac
     done
 fi
-if ! composer -v &> /dev/null || ! npm -v || rg --version &> /dev/null
 # Ask user for external softwares
+if ! composer -v &> /dev/null || ! npm -v &> /dev/null || ! fdfind --version &> /dev/null || ! rg --version &> /dev/null
 then
-    echo "This script requires ripgrep, composer & npm to be installed first."
+    echo "This script requires ripgrep, fd-find, composer & npm to be installed first."
     echo "If you have sudo rights please continue, otherwise ask your IT to install them first."
     select yn in "Continue" "Exit"
     do
@@ -43,10 +43,15 @@ then
             Exit ) exit ;;
         esac
     done
-    for softs in "composer" "npm" "ripgrep" "fd-find"
+    for softs in "rg" "fdfind" "composer" "npm"
     do
-        if ! $softs -v &> /dev/null
+        if ! $softs --version &> /dev/null
         then
+            if [[ $softs == "rg" ]]; then
+                softs="ripgrep"
+            elif [[ $softs == "fdfind" ]]; then
+                softs="fd-find"
+            fi
             echo "Software $softs is not installed."
             echo "Now installing $softs."
             sudo apt install $softs
