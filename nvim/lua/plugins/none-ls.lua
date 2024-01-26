@@ -4,13 +4,12 @@ return {
 		lazy = false,
 		config = function()
 			local null_ls = require("null-ls")
-			-- vim.cmd("MasonInstall beautysh stylua")
 			null_ls.setup({
 				sources = {
 					null_ls.builtins.formatting.stylua,
 					null_ls.builtins.formatting.beautysh,
 					null_ls.builtins.diagnostics.php,
-					null_ls.builtins.formatting.phpcbf,
+					null_ls.builtins.formatting.phpcsfixer,
 					null_ls.builtins.diagnostics.eslint_d,
 					null_ls.builtins.formatting.prettier,
 				},
@@ -32,6 +31,7 @@ return {
 					"beautysh",
 					"stylua",
 					"phpcbf",
+					"phpcsfixer",
                     "eslint_d",
                     "prettier",
 					"php",
