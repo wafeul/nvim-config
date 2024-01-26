@@ -32,7 +32,7 @@ then
     done
 fi
 # Ask user for external softwares
-if ! composer -v &> /dev/null || ! npm -v &> /dev/null || ! fdfind --version &> /dev/null || ! rg --version &> /dev/null
+if ! composer --version &> /dev/null || ! npm --version &> /dev/null || ! fdfind --version &> /dev/null || ! rg --version &> /dev/null
 then
     echo "This script requires ripgrep, fd-find, composer & npm to be installed first."
     echo "If you have sudo rights please continue, otherwise ask your IT to install them first."
