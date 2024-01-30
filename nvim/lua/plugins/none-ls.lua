@@ -9,9 +9,13 @@ return {
 					null_ls.builtins.formatting.stylua,
 					null_ls.builtins.formatting.beautysh,
 					null_ls.builtins.diagnostics.php,
-					null_ls.builtins.formatting.phpcsfixer,
+                    null_ls.builtins.formatting.phpcsfixer,
+                    -- null_ls.builtins.formatting.phpcsfixer.with({
+                    --     extra_args = {"--config=/home/rbourgeas/.config/nvim/externals/phpcsfixer.php"},
+                    -- }),
 					null_ls.builtins.diagnostics.eslint_d,
 					null_ls.builtins.formatting.prettier,
+					null_ls.builtins.diagnostics.hadolint,
 				},
 			})
 			vim.keymap.set("n", "<leader>gf", vim.lsp.buf.format, {})
@@ -30,6 +34,7 @@ return {
 				ensure_installed = {
 					"beautysh",
 					"stylua",
+                    "hadolint",
 					"phpcbf",
 					"phpcsfixer",
                     "eslint_d",
