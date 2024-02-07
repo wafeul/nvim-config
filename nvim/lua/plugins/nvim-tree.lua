@@ -4,9 +4,6 @@ return {
     lazy = false,
     dependencies = { "nvim-tree/nvim-web-devicons" },
     config = function()
-        vim.keymap.set("n", "<leader>o", ":NvimTreeOpen<CR>", {})
-        vim.keymap.set("n", "<leader>c", ":NvimTreeClose<CR>", {})
-        vim.keymap.set("n", "<leader>f", ":NvimTreeFocus<CR>", {})
         -- disable netrw at the very start of your init.lua
         vim.g.loaded_netrw = 1
         vim.g.loaded_netrwPlugin = 1
