@@ -15,5 +15,5 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-require("keyboard-shortcuts")
 require("lazy").setup("plugins")
+require("keyboard-shortcuts")
