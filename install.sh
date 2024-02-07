@@ -81,10 +81,26 @@ then
                 tar xf lazygit.tar.gz lazygit
                 sudo install lazygit /usr/local/bin
                 rm lazygit
+                rm lazygit.tar.gz
                 break ;;
             No ) break ;;
         esac
     done
+    if [ -s ~/.config/lazygit/config.yml ] &> /dev/null
+    then
+        echo "Your lazyGit config file is not empty. Do you wish to replace it with the one from this repo?"
+        select yn in "Yes" "No"
+        do
+            case $yn in
+                Yes )
+                    cp ./externals/lazygit/config.yml ~/.config/lazygit/config.yml
+                    break ;;
+                No ) break ;;
+            esac
+        done
+    else
+        cp ./externals/lazygit/config.yml ~/.config/lazygit/config.yml
+    fi
 else
     echo "lazygit already installed, proceeding with nerd fonts."
 fi
@@ -101,7 +117,7 @@ then
                     mkdir ~/.local/share/fonts/
                 fi
                 mkdir ~/.local/share/fonts/AurulentSansMono/
-                unzip ./nerdfonts/AurulentSansMono.zip -d ~/.local/share/fonts/AurulentSansMono/
+                unzip ./externals/nerdfonts/AurulentSansMono.zip -d ~/.local/share/fonts/AurulentSansMono/
                 fc-cache -fv
                 break ;;
             No ) break ;;
@@ -111,8 +127,8 @@ else
     echo "AurulentSansM nerdfont already installed, processing with nvim config."
 fi
 if [ -d ~/.config/nvim ]
-Save old nvim config and install new one
 then
+    echo "Save old nvim config and install new one"
     tar -czf ~/.config/nvim-old-config.tgz ~/.config/nvim 2> /dev/null
     rm -rf ~/.config/nvim
     echo "Old nvim config saved in ~/.config/nvim-old-config.tgz"
