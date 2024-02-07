@@ -1,4 +1,12 @@
 #!/bin/bash
+echo "This install is for Ubuntu related OS only."
+select yn in "Continue" "Exit"
+do
+    case $yn in
+        Continue ) break ;;
+        Exit ) exit ;;
+    esac
+done
 if ! nvim -v &> /dev/null
 then
     echo "NeoVim is not installed on this machine. It will be installed first."
@@ -6,7 +14,7 @@ then
     then
         echo "This script require curl in order to install the latest nvim image. Will install curl first."
         echo "If you have sudo rights please continue, otherwise ask your IT to install curl first."
-        select yn in "Continue" "exit"
+        select yn in "Continue" "Exit"
         do
             case $yn in
                 Continue ) break ;;
@@ -58,18 +66,60 @@ then
         fi
     done
 else
-    echo "Composer and npm already installed, proceeding with nvim configuration."
+    echo "Composer and npm already installed, proceeding with lazygit installation."
+fi
+if ! lazygit --version &> /dev/null
+then
+    echo "The following step will install lazygit on your computer and configure neovim to use it"
+    echo "Do you wish to install lazygit?"
+    select yn in "Yes" "No"
+    do
+        case $yn in
+            Yes )
+                LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | grep -Po '"tag_name": "v\K[^"]*')
+                curl -Lo lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/latest/download/lazygit_${LAZYGIT_VERSION}_Linux_x86_64.tar.gz"
+                tar xf lazygit.tar.gz lazygit
+                sudo install lazygit /usr/local/bin
+                break ;;
+            No ) break ;;
+        esac
+    done
+else
+    echo "lazygit already installed, proceeding with nerd fonts."
+fi
+if ! fc-list|grep Aurulent &> /dev/null
+then
+    echo "AurulentSansM nerdfont not found, do you wish to install it?"
+    echo "This is helpfull to have icons inside nvim."
+    select yn in "Yes" "No"
+    do
+        case $yn in
+            Yes )
+                if [ ! -d ~/.local/share/fonts/ ]
+                then
+                    mkdir ~/.local/share/fonts/
+                fi
+                mkdir ~/.local/share/fonts/AurulentSansMono/
+                unzip ./nerdfonts/AurulentSansMono.zip -d ~/.local/share/fonts/AurulentSansMono/
+                fc-cache -fv
+                break ;;
+            No ) break ;;
+        esac
+    done
+else
+    echo "AurulentSansM nerdfont already installed, processing with nvim config."
 fi
 if [ -d ~/.config/nvim ]
-# Save old nvim config and install new one
+Save old nvim config and install new one
 then
-    tar -czf ~/.config/nvim-old-config.tgz ~/.config/nvim
+    tar -czf ~/.config/nvim-old-config.tgz ~/.config/nvim 2> /dev/null
     rm -rf ~/.config/nvim
     echo "Old nvim config saved in ~/.config/nvim-old-config.tgz"
     if [ -d ~/.local/share/nvim ]
     then
+        tar -czf ~/.local/share/nvim-old-config.tgz ~/.local/share/nvim 2> /dev/null
         rm -rf ~/.local/share/nvim
-        echo "Old local files deleted"
+        echo "Old local files saved in ~/.local/share/nvim"
     fi
 fi
 
