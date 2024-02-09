@@ -6,7 +6,7 @@ $finder = (new PhpCsFixer\Finder())
 
 return (new PhpCsFixer\Config())
     ->setRules([
-        '@psr12' => true,
+        '@PSR12' => true,
         'control_structure_continuation_position' => ['position' => 'next_line'],
     ])
     ->setFinder($finder)
