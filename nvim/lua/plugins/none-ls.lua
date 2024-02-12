@@ -8,7 +8,7 @@ return {
                 sources = {
                     null_ls.builtins.formatting.stylua,
                     null_ls.builtins.formatting.beautysh,
-                    null_ls.builtins.diagnostics.php,
+                    null_ls.builtins.diagnostics.phpcs,
                     null_ls.builtins.formatting.phpcsfixer.with({
                         extra_args = {"--config", "/home/rbourgeas/.config/nvim/externals/phpcsfixer.php"},
                     }),
@@ -33,11 +33,10 @@ return {
                     "beautysh",
                     "stylua",
                     "hadolint",
-                    "phpcbf",
                     "phpcsfixer",
                     "eslint_d",
                     "prettier",
-                    "php",
+                    "phpcs",
                 },
                 handlers = {},
             })
