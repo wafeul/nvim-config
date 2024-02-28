@@ -1,4 +1,5 @@
 #!/bin/bash
+current_user=$(whoami)
 echo "This install is for Ubuntu related OS only."
 select yn in "Continue" "Exit"
 do
