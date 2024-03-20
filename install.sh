@@ -29,13 +29,25 @@ then
     sudo mv nvim.appimage /usr/local/bin/nvim
     echo "You can launch nvim with the /usr/local/bin/nvim command."
     echo "Do you want to have an alias (it will be added in ~/.bash_aliases)?"
-    select alias in "alias_vi" "alias_nvim" "no"
+    select alias in "vi" "nvim" "no"
     do
         case $alias in
             no ) break ;;
-            alias_vi ) echo "alias vi='/usr/local/bin/nvim'" >> ~/.bash_aliases
+            vi ) echo "alias vi='/usr/local/bin/nvim'" >> ~/.bash_aliases
                 break ;;
-            alias_nvim ) echo "alias nvim='/usr/local/bin/nvim'" >> ~/.bash_aliases
+            nvim ) echo "alias nvim='/usr/local/bin/nvim'" >> ~/.bash_aliases
+                break ;;
+        esac
+    done
+    echo "You can launch nvim in diff mode with the /usr/local/bin/nvim -d command."
+    echo "Do you want to have an alias (it will be added in ~/.bash_aliases)?"
+    select alias_diff in "vimdiff" "nvimdiff" "no"
+    do
+        case $alias_diff in
+            no ) break ;;
+            vimdiff ) echo "alias vimdiff='/usr/local/bin/nvim -d'" >> ~/.bash_aliases
+                break ;;
+            nvimdiff ) echo "alias nvimdiff='/usr/local/bin/nvim -d'" >> ~/.bash_aliases
                 break ;;
         esac
     done
