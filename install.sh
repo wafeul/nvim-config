@@ -117,7 +117,7 @@ then
 else
     echo "lazygit already installed, proceeding with nerd fonts."
 fi
-if ! fc-list|grep Aurulent &> /dev/null
+if ! fc-list|grep DejaVuSansMono &> /dev/null
 then
     echo "AurulentSansM nerdfont not found, do you wish to install it?"
     echo "This is helpfull to have icons inside nvim."
@@ -129,8 +129,8 @@ then
                 then
                     mkdir ~/.local/share/fonts/
                 fi
-                mkdir ~/.local/share/fonts/AurulentSansMono/
-                unzip ./externals/nerdfonts/AurulentSansMono.zip -d ~/.local/share/fonts/AurulentSansMono/
+                mkdir ~/.local/share/fonts/DejaVuSansMono/
+                unzip ./externals/nerdfonts/DejaVuSansMono.zip -d ~/.local/share/fonts/DejaVuSansMono/
                 fc-cache -fv
                 break ;;
             No ) break ;;
