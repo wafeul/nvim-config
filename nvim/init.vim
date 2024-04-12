@@ -129,7 +129,7 @@ map Y y$
 
 " Map <C-L> (redraw screen) to also turn off search highlighting until the
 " next search
-nnoremap <C-L> :nohl<CR><C-L>
+nnoremap <C-M> :nohl<CR><C-M>
 
 " Move up/down editor lines
 nnoremap j gj
@@ -145,11 +145,6 @@ set fileformats=unix
 " More natural way of splitting windows
 set splitbelow
 set splitright
-
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-" nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
 
 " ----------------------------------------------------------------"
 "               BarBar Mapping and Commands                       "
