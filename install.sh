@@ -119,7 +119,7 @@ else
 fi
 if ! fc-list|grep DejaVuSansMono &> /dev/null
 then
-    echo "AurulentSansM nerdfont not found, do you wish to install it?"
+    echo "DejaVuSansMono nerdfont not found, do you wish to install it?"
     echo "This is helpfull to have icons inside nvim."
     select yn in "Yes" "No"
     do
@@ -137,7 +137,7 @@ then
         esac
     done
 else
-    echo "AurulentSansM nerdfont already installed, processing with nvim config."
+    echo "DejaVuSansMono nerdfont already installed, processing with nvim config."
 fi
 if [ -d ~/.config/nvim ]
 then
