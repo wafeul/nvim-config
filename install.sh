@@ -156,3 +156,4 @@ fi
 cp -r nvim ~/.config/
 sed -i "s/rbourgeas/$current_user/g" ~/.config/nvim/lua/plugins/none-ls.lua
 cp .prettierrc.yaml ~/
+
