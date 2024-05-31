@@ -11,11 +11,10 @@ return {
                     null_ls.builtins.diagnostics.phpcs.with({
                         method = null_ls.methods.DIAGNOSTICS_ON_SAVE,
                     }),
-                    -- null_ls.builtins.formatting.phpcsfixer.with({
-                    --     extra_args = {"--config", "/home/rbourgeas/.config/nvim/externals/phpcsfixer.php"},
-                    -- }),
-                    -- null_ls.builtins.formatting.phpcbf,
-                    null_ls.builtins.formatting.pretty_php,
+                    null_ls.builtins.formatting.phpcsfixer.with({
+                        extra_args = {"--config", "/home/rbourgeas/.config/nvim/externals/phpcsfixer.php"},
+                    }),
+                    -- null_ls.builtins.formatting.pretty_php,
                     null_ls.builtins.diagnostics.eslint_d,
                     null_ls.builtins.formatting.prettier,
                     null_ls.builtins.diagnostics.hadolint,
@@ -40,7 +39,8 @@ return {
                     "eslint_d",
                     "prettier",
                     "phpcs",
-                    "pretty-php"
+                    "phpcsfixer",
+                    -- "pretty-php"
                 },
                 handlers = {},
             })
