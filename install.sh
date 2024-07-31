@@ -141,7 +141,7 @@ if [ -d ~/.config/nvim ]; then
     if [ -d ~/.local/share/nvim ]; then
         tar -czf ~/.local/share/nvim-old-config.tgz ~/.local/share/nvim 2>/dev/null
         rm -rf ~/.local/share/nvim
-        echo "Old local files saved in ~/.local/share/nvim"
+        echo "Old local files saved in ~/.local/share/nvim-old-config.tgz"
     fi
 fi
 
