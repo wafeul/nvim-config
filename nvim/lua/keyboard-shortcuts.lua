@@ -2,7 +2,11 @@
 -- Neotest
 ----------------------------------------------------------------------------------
 vim.keymap.set('n', '<leader>tn', function() require('neotest').run.run() end)
-vim.keymap.set('n', '<leader>tn', function() require('neotest').run.run() end)
+vim.keymap.set('n', '<leader>tf', function() require('neotest').run.run(vim.fn.expand('%')) end)
+vim.keymap.set('n', '<leader>tot', function() require('neotest').output_panel.toggle() end)
+vim.keymap.set('n', '<leader>tc', function() require('neotest').output_panel.clear() end)
+vim.keymap.set('n', '<leader>to', function() require('neotest').output.open() end)
+vim.keymap.set('n', '<leader>tt', function() require("neotest").summary.toggle() end)
 
 ----------------------------------------------------------------------------------
 -- DAP
