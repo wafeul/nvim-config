@@ -34,7 +34,6 @@ return {
 					"hadolint",
 					"prettierd",
 					"phpcs",
-					-- "phpcsfixer",
 					"pretty-php",
 				},
 				handlers = {},
